@@ -33,7 +33,7 @@ const Group: React.FC<GroupProps> = ({ direction, children }) => {
     };
 
     animate();
-  }, []);
+  }, [controls]);
 
   return (
     <motion.div

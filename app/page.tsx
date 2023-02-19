@@ -1,9 +1,7 @@
 import React from "react";
 import Group from "@/components/Group";
 import Tile from "@/components/Tile";
-import { ImagesProvider } from "@/utils/images";
 import CustomCursor from "@/utils/cursor";
-import { getBaseUrl } from "@/utils/utils";
 
 const Block2 = () => (
   <Group direction="horizontal">
@@ -45,16 +43,13 @@ const Block8 = () => (
 );
 
 const Page = async () => {
-  const res = await fetch(`${getBaseUrl()}/api/images`);
-  const { images }: { images: string[] } = await res.json();
-
   return (
-    <ImagesProvider images={images}>
+    <>
       <main id="frame">
         <Block8 />
       </main>
       <CustomCursor />
-    </ImagesProvider>
+    </>
   );
 };
 
