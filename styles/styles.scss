@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background: radial-gradient(
+      63.62% 69.52% at 100% 0%,
+      rgba(247, 214, 98, 0.8) 0%,
+      rgba(247, 214, 98, 0.168) 52.08%,
+      rgba(247, 214, 98, 0) 100%
+    ),
+    linear-gradient(
+      208.42deg,
+      #f0422a 7.46%,
+      rgba(240, 88, 42, 0.18) 42.58%,
+      rgba(240, 101, 42, 0) 64.13%
+    ),
+    radial-gradient(
+      114.51% 122.83% at 0% -15.36%,
+      #e74f6a 0%,
+      rgba(231, 79, 106, 0.22) 66.72%,
+      rgba(231, 79, 106, 0) 100%
+    ),
+    linear-gradient(
+      333.95deg,
+      rgba(83, 208, 236, 0.85) -7.76%,
+      rgba(83, 208, 236, 0.204) 19.67%,
+      rgba(138, 137, 190, 0) 35.42%
+    ),
+    radial-gradient(
+      109.15% 148.57% at 4.46% 98.44%,
+      #1b3180 0%,
+      rgba(27, 49, 128, 0) 100%
+    ),
+    linear-gradient(141.57deg, #4eadeb 19.08%, rgba(78, 173, 235, 0) 98.72%);
+  background-blend-mode: normal, normal, normal, normal, multiply, normal;
+}
+
+#frame {
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.group {
+  --layout: 1fr 1fr;
+
+  display: grid;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  &[data-direction="vertical"] {
+    grid-template-rows: var(--layout);
+    grid-template-columns: 1fr;
+  }
+  &[data-direction="horizontal"] {
+    grid-template-columns: var(--layout);
+    grid-template-rows: 1fr;
+  }
+}
+
+.window {
+  border: 1px solid white;
+  cursor: pointer;
+
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  & img {
+    object-fit: cover;
+    transition: 0.4s ease;
+    transition-property: transform, opacity;
+  }
+
+  &:hover {
+    & img {
+      transform: scale(1.02);
+    }
+  }
+}

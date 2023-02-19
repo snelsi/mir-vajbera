@@ -1,4 +1,4 @@
-import "./styles.scss";
+import "@/styles/styles.scss";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
-import Image from "next/image";
+import NextImage, { ImageProps as NextImageProps } from "next/image";
 
 import { useImages } from "@/utils/images";
 import { getRandomNum } from "@/utils/utils";
@@ -17,6 +17,11 @@ const useRandomImage = () => {
     [getRandomImage]
   );
 
+  const hidePreviousImage = useCallback(
+    () => setImages((prev) => prev.slice(1)),
+    []
+  );
+
   useEffect(() => {
     const t = setTimeout(() => {
       loadNextImage();
@@ -26,7 +31,7 @@ const useRandomImage = () => {
     };
   }, [images, loadNextImage]);
 
-  return { images, setImages, loadNextImage };
+  return { images, setImages, hidePreviousImage, loadNextImage };
 };
 
 const variants: Variants = {
@@ -38,31 +43,58 @@ const variants: Variants = {
   },
 };
 
+interface ImageProps extends NextImageProps {
+  src: string;
+}
+
+const Image: React.FC<ImageProps> = ({
+  src,
+  alt = "",
+  onLoadingComplete,
+  ...props
+}) => {
+  const [loaded, setLoaded] = useState(false);
+
+  const onLoaded = useCallback(
+    (img: HTMLImageElement) => {
+      setLoaded(true);
+      onLoadingComplete?.(img);
+    },
+    [onLoadingComplete]
+  );
+
+  return (
+    <motion.div
+      initial="hidden"
+      animate={loaded ? "visible" : "hidden"}
+      exit="hidden"
+      variants={variants}
+    >
+      <NextImage
+        src={src}
+        alt={alt}
+        fill
+        sizes="50vw"
+        onLoadingComplete={onLoaded}
+        {...props}
+      />
+    </motion.div>
+  );
+};
+
 const Tile: React.FC = () => {
-  const { images, setImages, loadNextImage } = useRandomImage();
+  const { images, hidePreviousImage, loadNextImage } = useRandomImage();
+
   return (
     <div className="window" onClick={loadNextImage}>
       <AnimatePresence>
         {images.map((src, i) => (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={variants}
+          <Image
+            src={src}
+            alt=""
+            onLoadingComplete={i > 1 ? hidePreviousImage : undefined}
             key={src}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              unoptimized
-              onLoadingComplete={() => {
-                if (i > 1) {
-                  setImages((prev) => prev.slice(1));
-                }
-              }}
-            />
-          </motion.div>
+          />
         ))}
       </AnimatePresence>
     </div>
