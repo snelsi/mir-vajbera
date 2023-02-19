@@ -3,9 +3,7 @@ import Group from "@/components/Group";
 import Tile from "@/components/Tile";
 import { ImagesProvider } from "@/utils/images";
 import CustomCursor from "@/utils/cursor";
-
-import path from "path";
-import { readdir } from "fs/promises";
+import { getBaseUrl } from "@/utils/utils";
 
 const Block2 = () => (
   <Group direction="horizontal">
@@ -47,8 +45,8 @@ const Block8 = () => (
 );
 
 const Page = async () => {
-  const imagesPath = path.resolve(process.cwd(), "public", "images");
-  const images = await readdir(imagesPath);
+  const res = await fetch(`${getBaseUrl()}/api/images`);
+  const { images }: { images: string[] } = await res.json();
 
   return (
     <ImagesProvider images={images}>
