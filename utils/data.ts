@@ -4,8 +4,14 @@
 // import path from "path";
 // import { readdir, writeFile } from "fs/promises";
 
-// const res = await fetch(`${getBaseUrl()}/api/images`);
-// const { images }: { images: string[] } = await res.json();
+// const imagesPath = path.resolve(process.cwd(), "public", "images");
+// const images = await readdir(imagesPath);
+// await writeFile(
+//   "data.js",
+//   `const images = [${images
+//     .map((src) => `"${src}"`)
+//     .join(", ")}]; export default images`
+// );
 
 const images = [
   "1648257343_1-kartinkof-club-p-mem-prodam-garazh-1.jpg",
@@ -345,6 +351,17 @@ const images = [
   "1670494216_kartinkof-club-p-kartinki-sreda-pozitiv-2.jpg",
   "1670494222_kartinkof-club-p-kartinki-sreda-pozitiv-7.jpg",
   "1670494240_kartinkof-club-p-kartinki-sreda-pozitiv-19.jpg",
+  "1675881445_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-4.jpg",
+  "1675881460_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-13.png",
+  "1675881476_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-42.jpg",
+  "1675881478_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-25.jpg",
+  "1675881485_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-10.jpg",
+  "1675881486_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-28.jpg",
+  "1675881519_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-2.jpg",
+  "1675881532_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-18.jpg",
+  "1675881537_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-17.jpg",
+  "1675881540_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-3.jpg",
+  "1675881544_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-23.jpg",
 ];
 
 export default images;
