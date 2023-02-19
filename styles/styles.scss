@@ -64,6 +64,14 @@ main {
   }
 }
 
+// Make top group vertical on mobile
+@media (max-aspect-ratio: 1/1) {
+  main > .group {
+    grid-template-rows: var(--layout) !important;
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .window {
   border: 1px solid white;
   cursor: pointer;
