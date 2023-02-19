@@ -1,5 +1,5 @@
 export const getRandomNum = (min = 0, max = 100) =>
-  Math.floor(Math.random() * max - min) + min;
+  Math.floor(Math.random() * (max - min)) + min;
 
 export const getBaseUrl = () => {
   if (typeof window !== "undefined") return ""; // browser should use relative url

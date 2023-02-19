@@ -20,7 +20,7 @@ const useRandomImage = () => {
   useEffect(() => {
     const t = setTimeout(() => {
       loadNextImage();
-    }, getRandomNum(2000, 20000));
+    }, getRandomNum(1000, 16000));
     return () => {
       clearTimeout(t);
     };

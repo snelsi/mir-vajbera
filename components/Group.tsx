@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+import { getRandomNum } from "@/utils/utils";
 
 const getLayout = () => {
-  const ratio = Math.random();
-  const layout = `minmax(0, ${ratio}fr) minmax(0, ${1 - ratio}fr)`;
+  const ratio = getRandomNum(1, 99);
+  const layout = `minmax(0, ${ratio}fr) minmax(0, ${100 - ratio}fr)`;
   return { "--layout": layout } as any;
 };
 
@@ -21,8 +22,8 @@ const Group: React.FC<GroupProps> = ({ direction, children }) => {
   useEffect(() => {
     const shift = ({ ...props } = {}) =>
       controls.start(getLayout(), {
-        duration: 1 + 5 * Math.random(),
-        delay: 1 + 5 * Math.random(),
+        duration: getRandomNum(1, 6),
+        delay: getRandomNum(1, 6),
         ...props,
       });
 
