@@ -29,24 +29,11 @@ const Block4 = () => (
   </Group>
 );
 
-const Block8 = () => (
-  <Group direction="horizontal">
-    <Group direction="vertical">
-      <Block4 />
-      <Block4 />
-    </Group>
-    <Group direction="vertical">
-      <Block4 />
-      <Block4 />
-    </Group>
-  </Group>
-);
-
 const Page = async () => {
   return (
     <>
       <main id="frame">
-        <Block8 />
+        <Block4 />
       </main>
       <CustomCursor />
     </>
