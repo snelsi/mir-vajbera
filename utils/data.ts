@@ -8,9 +8,9 @@
 // const images = await readdir(imagesPath);
 // await writeFile(
 //   "data.js",
-//   `const images = [${images
+//   `const images = [\n${images
 //     .map((src) => `"${src}"`)
-//     .join(", ")}];\n\nexport default images`
+//     .join(",\n")}\n];\n\nexport default images`
 // );
 
 const images = [
@@ -38,19 +38,11 @@ const images = [
   "1652633658_38-kartinkof-club-p-zharkaya-subbota-kartinki-41.jpg",
   "1652633658_39-kartinkof-club-p-zharkaya-subbota-kartinki-42.jpg",
   "1652633659_41-kartinkof-club-p-zharkaya-subbota-kartinki-45.jpg",
-  "1652634724_15-kartinkof-club-p-chernaya-subbota-kartinka-15.jpg",
-  "1652649920_4-kartinkof-club-p-kazhduyu-subbotu-kartinka-4.jpg",
-  "1652649921_8-kartinkof-club-p-kazhduyu-subbotu-kartinka-8.jpg",
-  "1652649921_9-kartinkof-club-p-kazhduyu-subbotu-kartinka-9.jpg",
-  "1652649923_13-kartinkof-club-p-kazhduyu-subbotu-kartinka-13.jpg",
-  "1652649923_14-kartinkof-club-p-kazhduyu-subbotu-kartinka-14.jpg",
-  "1652649923_15-kartinkof-club-p-kazhduyu-subbotu-kartinka-15.jpg",
   "1652649924_16-kartinkof-club-p-kazhduyu-subbotu-kartinka-16.jpg",
   "1652649925_19-kartinkof-club-p-kazhduyu-subbotu-kartinka-19.jpg",
   "1652649925_20-kartinkof-club-p-kazhduyu-subbotu-kartinka-20.jpg",
   "1652649926_21-kartinkof-club-p-kazhduyu-subbotu-kartinka-21.png",
   "1652649927_22-kartinkof-club-p-kazhduyu-subbotu-kartinka-22.jpg",
-  "1652649927_23-kartinkof-club-p-kazhduyu-subbotu-kartinka-23.jpg",
   "1652649927_24-kartinkof-club-p-kazhduyu-subbotu-kartinka-24.jpg",
   "1652649929_29-kartinkof-club-p-kazhduyu-subbotu-kartinka-29.jpg",
   "1652649929_30-kartinkof-club-p-kazhduyu-subbotu-kartinka-30.jpg",
@@ -302,7 +294,7 @@ const images = [
   "1675881532_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-18.jpg",
   "1675881537_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-17.jpg",
   "1675881540_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-3.jpg",
-  "1675881544_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-23.jpg",
-];
-
-export default images;
+  "1675881544_bronk-club-p-veseloe-pozhelanie-dobrogo-utra-druzyam-kr-23.jpg"
+  ];
+  
+  export default images
